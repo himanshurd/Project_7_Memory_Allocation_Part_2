@@ -54,7 +54,7 @@ void *myalloc(int bytes){
       split_space(cur, bytes);
       cur->in_use = 1;
       int padded_block_size = PADDED_SIZE(sizeof(struct block));
-      return PTR_OFFSET(head, padded_block_size);
+      return PTR_OFFSET(cur, padded_block_size);
     }
     cur = cur->next;
   }
@@ -87,17 +87,17 @@ int main(void) {
 //   myfree(p);
 //   print_data();
   
-//   myalloc(10); print_data();
-//   myalloc(20); print_data();
-//   myalloc(30); print_data();
-//   myalloc(40); print_data();
-//   myalloc(50); print_data();
+  myalloc(10); print_data();
+  myalloc(20); print_data();
+  myalloc(30); print_data();
+  myalloc(40); print_data();
+  myalloc(50); print_data();
   
-  void *p;
-  myalloc(10);     print_data();
-  p = myalloc(20); print_data();
-  myalloc(30);     print_data();
-  myfree(p);       print_data();
-  myalloc(40);     print_data();
-  myalloc(10);     print_data();
+//   void *p;
+//   myalloc(10);     print_data();
+//   p = myalloc(20); print_data();
+//   myalloc(30);     print_data();
+//   myfree(p);       print_data();
+//   myalloc(40);     print_data();
+//   myalloc(10);     print_data();
 }
